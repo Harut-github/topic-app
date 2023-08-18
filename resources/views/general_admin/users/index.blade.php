@@ -18,7 +18,6 @@
                         <th>Имя</th>
                         <th>E-mail</th>
                         <th>Телефон</th>
-                        <th>Действия</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,23 +26,7 @@
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td>
-                            <img src="../assets/dist/img/photo2.png" alt="" class="img-responsive" width="150">
-                        </td>
-                        <td>
-                            <a href="{{ route('users.edit', $user->id) }}" class="fa fa-pencil"></a>
-
-                            {{-- @if (Auth::user()->status == 1) --}}
-                            <form action="{{ route('users.destroy', $user->id)}}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button onclick="return confirm('вы уверены что хотите удалить???')">
-                                    <i class="fa fa-remove"></i>
-                                </button>
-                            </form>
-                            {{-- @endif --}}
-
-                        </td>
+                        <td>{{$user->phone}}</td>
                     </tr>
                     @endforeach
                     </tfoot>
